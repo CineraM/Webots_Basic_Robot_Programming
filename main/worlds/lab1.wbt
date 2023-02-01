@@ -1,0 +1,85 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.22354899161629296 0.20425627353704415 0.9530504829588508 1.708517576218534
+  position 0.05963711906395733 -0.8073047312374259 0.4852467567905097
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+  luminosity 1.5
+}
+RectangleArena {
+  rotation 0 1 0 0
+  floorSize 3 3
+}
+DEF epuck E-puck {
+  hidden rotation_1 0 1 0 2.706589376674795
+  hidden rotation_2 0 1 0 2.7065893766492795
+  translation -1.1055630365290322e-06 0.3054576650112529 -6.394813914878741e-05
+  rotation 0.0006587526183104335 -0.0006587531616335487 0.9999995660445359 1.5708004200910717
+  controller "lab1_task2"
+  supervisor TRUE
+  turretSlot [
+    DEF Front DistanceSensor {
+      translation 0.045 0 -0.011
+      name "front distance sensor"
+      lookupTable [
+        0 0 0
+        1.27 1.27 0.1
+      ]
+    }
+    DEF Right DistanceSensor {
+      translation 0.01 -0.035 -0.011
+      rotation 0 0 1 -1.5707853071795865
+      name "right distance sensor"
+      lookupTable [
+        0 0 0
+        1.27 1.27 0.1
+      ]
+    }
+    DEF Rear DistanceSensor {
+      translation -0.025 0 -0.011
+      rotation 0 0 1 3.1415
+      name "rear distance sensor"
+      lookupTable [
+        0 0 0
+        1.27 1.27 0.1
+      ]
+    }
+    DEF Left DistanceSensor {
+      translation 0.01 0.035 -0.011
+      rotation 0 0 1 1.5708
+      name "left distance sensor"
+      recognitionColors [
+        0 0 0
+      ]
+      lookupTable [
+        0 0 0
+        1.27 1.27 0.1
+      ]
+    }
+    InertialUnit {
+      rotation -1 0 0 -5.307179586466759e-06
+    }
+    Camera {
+      translation 0.043 0 -0.015
+      name "camera1"
+      recognitionColors [
+        1 1 0
+      ]
+      fieldOfView 1.57
+      width 80
+      height 80
+      recognition Recognition {
+      }
+    }
+  ]
+}
